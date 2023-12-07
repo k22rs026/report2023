@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <script src="components/loader.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        var startTime ;
+        var stopTime ;
+        var totalTime ;
+        var distance;
+        var calorie;
+
+        var calorie=0;
+
+        let cal;
+
+        function start(){
+            startTime = Date.now();
+        }
+
+        function stop(){
+            stopTime = Date.now();
+            totalTime = (stopTime - startTime)/1000;
+            document.getElementById("time").innerHTML = "歩いた時間：" + totalTime.toFixed(2) + "[秒]";
+
+            distance = (totalTime / 60) * 70;
+            distance = distance.toFixed(1);
+            document.getElementById("distance").innerHTML ="歩いた距離：" + distance + "[ｍ]";
+
+            calorie = (totalTime / 60) * 4.2;
+            calorie = calorie.toFixed(1);
+            document.getElementById("calorie").innerHTML ="消費したカロリー：" + calorie + "[kcal]";
+
+            if(totalTime>=60){
+                totalTime = totalTime/60;
+                document.getElementById("time").innerHTML = "歩いた時間：" + totalTime.toFixed(1) + "[分]";
+            }
+            
+        }
+    </script>
+
+    <style>
+        button{
+            font-size: 300%
+        }
+
+        div{
+            display: inline-block;
+        }
+
+        body{
+            background-color: azure;
+        }
+
+        #time, #distance, #calorie{
+            font-size: 150%
+        }
+    </style>
+</head>
+<body>
+    <button onclick ="start()">Start</button>
+    <p></p>
+    <button onclick = "stop()">Stop</button>
+    <p></p>
+    <br>
+    <div id = "time">歩いた時間：</div>
+    <br>
+    <div id = "distance">歩いた距離：</div>
+    <br>
+    (一分間で70m歩くと仮定)
+    <br>
+    <div id = "calorie">消費したカロリー：</div>
+    <br>
+    (一分間で４.２kcal消費すると仮定)
+
+
+</body>
+</html>
