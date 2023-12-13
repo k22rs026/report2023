@@ -14,6 +14,8 @@
         var totalTime ;
         var distance;
 
+        let ncmb = new NCMB(appKey, clientKey);
+        let TestClass = ncmb.DataStore("Report");
 
         function start(){
             startTime = Date.now();
