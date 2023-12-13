@@ -37,6 +37,14 @@
             }
             
         }
+
+        function regist(){
+            let newRecord = new TestClass();
+            let value = document.getElementById("time").textContent;
+            newRecord.set("distance", value);
+            newRecord.save();
+        }
+        
     </script>
 
     <style>
