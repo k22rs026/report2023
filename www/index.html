@@ -13,11 +13,7 @@
         var stopTime ;
         var totalTime ;
         var distance;
-        var calorie;
 
-        var calorie=0;
-
-        let cal;
 
         function start(){
             startTime = Date.now();
@@ -32,9 +28,6 @@
             distance = distance.toFixed(1);
             document.getElementById("distance").innerHTML ="歩いた距離：" + distance + "[ｍ]";
 
-            calorie = (totalTime / 60) * 4.2;
-            calorie = calorie.toFixed(1);
-            document.getElementById("calorie").innerHTML ="消費したカロリー：" + calorie + "[kcal]";
 
             if(totalTime>=60){
                 totalTime = totalTime/60;
@@ -76,10 +69,6 @@
     <br>
     (一分間で70m歩くと仮定)
     <br>
-    <div id = "calorie">消費したカロリー：</div>
-    <br>
-    (一分間で４.２kcal消費すると仮定)
-
 
 </body>
 </html>
