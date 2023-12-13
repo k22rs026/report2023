@@ -44,6 +44,18 @@
             newRecord.set("distance", value);
             newRecord.save();
         }
+
+        function fetch(){
+            TestClass.fetchAll().
+                then(function(results){ 
+                    var msg=""; 
+                    for(var i=0; i<results.length; i++){ 
+                        var data = results[i].get("distance"); 
+                        msg += data + "<br>"; 
+                    } 
+                    document.getElementById("display").innerHTML = msg; 
+                })
+        }
         
     </script>
 
@@ -60,7 +72,7 @@
             background-color: azure;
         }
 
-        #time, #distance, #calorie{
+        #time, #distance, #display{
             font-size: 150%
         }
     </style>
@@ -79,6 +91,7 @@
     <br>
     (一分間で70m歩くと仮定)
     <br>
+    <div id = "display"></div>
 
 </body>
 </html>
