@@ -51,8 +51,8 @@
                     var msg=""; 
                     for(var i=0; i<results.length; i++){ 
                         var data = results[i].get("distance"); 
-                        msg += data + "<br>"; 
-                    } 
+                        msg += (i+1) + "回目 ： " +  data + "<br>"; 
+                    }
                     document.getElementById("display").innerHTML = msg; 
                 })
         }
